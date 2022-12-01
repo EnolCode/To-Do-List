@@ -6,19 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <link rel="stylesheet" href="./sass/styles.scss" />
-    <script src="https://kit.fontawesome.com/8b36fc8439.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/8b36fc8439.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <section class="list">
-      <h1 class="list__title">Simple TODO list</h1>
-      <div class="list__container-input">
-        <input type="text" class="list__container-input__task" />
-        <i class="fa-solid fa-square-check list__container-input__button"></i>
-      </div>
+    <header>
+      <h1 class="title">Simple TODO list</h1>
 
-      <!-- <input type="text"> -->
-      <div class="list__container-tasks">
-        <ul class="list__container-tasks__list"></ul>
+      <form class="task-form">
+        <input
+          class="task-form__input"
+          type="text"
+          class="list__container-input__task"
+          placeholder="¿Cuál será tu próxima tarea?"
+        />
+        <i class="fa-solid fa-square-check task-form__submit"></i>
+      </form>
+    </header>
+    <section class="task-list">
+      <div class="content">
+        <h2 class="task-list__title">Tasks</h2>
+        <!-- <div class="task-list__tasks">
+          <div class="task-list__container-input">
+            <input
+              class="task-list__input"
+              type="text"
+              value="My task"
+              readonly
+            />
+          </div>
+          <div class="task-list__actions">
+            <button class="task-list__btn-delete">
+              <i class="fa-solid fa-pencil icon-modify icon"></i>
+            </button>
+            <button class="task-list__btn-delete">
+              <i class="fa-solid fa-trash icon-delete icon"></i>
+            </button>
+          </div> -->
+        <!-- </div> -->
       </div>
     </section>
     <script type="module" src="./js/scripts.js"></script>

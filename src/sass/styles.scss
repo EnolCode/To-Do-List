@@ -1,3 +1,7 @@
+@use "./header";
+@use "./colors" as c;
+@use "./list-tasks";
+
 * {
   margin: 0;
   padding: 0;
@@ -5,109 +9,113 @@
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.list {
-  height: 25em;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  &__title {
-    font-size: 2em;
-    font-family: sans-serif;
-    letter-spacing: 2px;
-    background: #1b1a1a;
-    color: #ffffff;
-    padding: 2em 3em;
-    border-radius: 5px;
-    margin-bottom: 1em;
-  }
-  &__container-input {
-    &__task {
-      border-radius: 5px;
-      width: 100%;
-      padding: 0.4em;
-      font-size: 1.3em;
-      border: 2px solid black;
-    }
-    &__button {
-      font-size: 3.21em;
-      position: relative;
-      bottom: 50%;
-      left: 91%;
-      cursor: pointer;
-      &:hover {
-        color: rgb(75, 68, 68);
-      }
-    }
-  }
-  &__container-tasks__list {
-    // width: 10em;
-    // background: red;
-    border-radius: 5px;
-  }
-
-  .icon-delete {
-    cursor: pointer;
-    color: rgb(240, 68, 68);
-    &:hover {
-      color: red;
-    }
-  }
-
-  .icon-modify {
-    margin: 0 0.4em;
-    cursor: pointer;
-    &:hover {
-      color: rgb(124, 118, 118);
-    }
-    // color: bluewhite;
-  }
-
-  .task {
-    // margin: 1em;
-    font-size: 1.3em;
-    padding: 0.3em 1em;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    color: white;
-    background: #1b1a1a;
-
-    &:hover .input-main {
-      transition: 0.1s;
-      background: rgba(255, 255, 255, 0.719);
-      color: black;
-      box-shadow: none;
-    }
-    &:hover {
-      transition: 0.1s;
-      background: rgba(255, 255, 255, 0.719);
-
-      color: black;
-    }
-    &:hover .icon-delete {
-    }
-  }
-  // .div-icons {
-  //   padding: 1em;
-  // }
-
-  .input-main {
-    background: #1b1a1a;
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    outline: none;
-    &:checked {
-      border: none;
-      // transition: 0.3s;
-      // background: rgba(241, 233, 233, 0.719);
-    }
-  }
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: map-get(c.$colors, "dark");
+  color: map-get(c.$colors, "light");
 }
+
+// .list {
+//   height: 25em;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-evenly;
+//   &__title {
+//     font-size: 2em;
+//     font-family: sans-serif;
+//     letter-spacing: 2px;
+//     background: #1b1a1a;
+//     color: #ffffff;
+//     padding: 2em 3em;
+//     border-radius: 5px;
+//     margin-bottom: 1em;
+//   }
+//   &__container-input {
+//     &__task {
+//       border-radius: 5px;
+//       width: 100%;
+//       padding: 0.4em;
+//       font-size: 1.3em;
+//       border: 2px solid black;
+//     }
+//     &__button {
+//       font-size: 3.21em;
+//       position: relative;
+//       bottom: 50%;
+//       left: 91%;
+//       cursor: pointer;
+//       &:hover {
+//         color: rgb(75, 68, 68);
+//       }
+//     }
+//   }
+//   &__container-tasks__list {
+//     // width: 10em;
+//     // background: red;
+//     border-radius: 5px;
+//   }
+
+//   .icon-delete {
+//     cursor: pointer;
+//     color: rgb(240, 68, 68);
+//     &:hover {
+//       color: red;
+//     }
+//   }
+
+//   .icon-modify {
+//     margin: 0 0.4em;
+//     cursor: pointer;
+//     &:hover {
+//       color: rgb(124, 118, 118);
+//     }
+//     // color: bluewhite;
+//   }
+
+//   .task {
+//     // margin: 1em;
+//     font-size: 1.3em;
+//     padding: 0.3em 1em;
+//     border: 2px solid black;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     color: white;
+//     background: #1b1a1a;
+
+//     &:hover .input-main {
+//       transition: 0.1s;
+//       background: rgba(255, 255, 255, 0.719);
+//       color: black;
+//       box-shadow: none;
+//     }
+//     &:hover {
+//       transition: 0.1s;
+//       background: rgba(255, 255, 255, 0.719);
+
+//       color: black;
+//     }
+//     &:hover .icon-delete {
+//     }
+//   }
+//   // .div-icons {
+//   //   padding: 1em;
+//   // }
+
+//   .input-main {
+//     background: #1b1a1a;
+//     border: none;
+//     color: white;
+//     font-size: 1.2em;
+//     outline: none;
+//     &:checked {
+//       border: none;
+//       // transition: 0.3s;
+//       // background: rgba(241, 233, 233, 0.719);
+//     }
+//   }
+// }
