@@ -1,25 +1,22 @@
 @use "./colors" as c;
+@use "./mixins" as m;
 
 .task-list {
-  width: 29.25em;
-  display: flex;
-  flex-direction: column;
+  @include m.flex(flex, column, nowrap, "", "");
   text-align: center;
+
   &__title {
     margin-bottom: 1em;
   }
   &__tasks {
     border-radius: 5px;
     background-color: map-get(c.$colors, "darkest");
-    margin-bottom: 0.2em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 0.5em;
   }
+
   &__container-input {
     font-size: 2em;
-    color: map-get(c.$colors, "light");
-    padding: 0.2em 0.5em;
+    @include m.flex(flex, row, nowrap, "", center);
   }
   &__input {
     color: map-get(c.$colors, "light");
@@ -29,6 +26,12 @@
     background-color: map-get(c.$colors, "darkest");
     font-size: 0.75em;
     padding: 0.5em 0.8em;
+    width: 75%;
+
+    @include m.mv() {
+      font-size: 0.5em;
+      padding: 1em 0.8em;
+    }
 
     &:not(:read-only) {
       color: map-get(c.$colors, "pink");
@@ -36,31 +39,5 @@
   }
   &__actions {
     display: flex;
-    padding: 0 0.5em;
-  }
-  button {
-    border: none;
-    transition: 0.4s;
-  }
-  .icon {
-    padding: 0 0.4em;
-    cursor: pointer;
-    background-color: map-get(c.$colors, "darkest");
-    border: none;
-    font-size: 1.8em;
-  }
-
-  .icon-delete {
-    color: rgb(219, 35, 35);
-    &:hover {
-      color: red;
-    }
-  }
-
-  .icon-modify {
-    color: map-get(c.$colors, "gray");
-    &:hover {
-      color: rgb(94, 90, 90);
-    }
   }
 }

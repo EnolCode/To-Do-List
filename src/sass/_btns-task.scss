@@ -1,0 +1,36 @@
+@use "./colors" as c;
+@use "./mixins" as m;
+
+button {
+  border: none;
+  transition: 0.4s;
+}
+.icon {
+  padding: 0 0.4em;
+  cursor: pointer;
+  background-color: map-get(c.$colors, "darkest");
+  border: none;
+  font-size: 1.8em;
+  height: 100%;
+}
+
+.icon-delete {
+  color: rgb(219, 35, 35);
+  &:hover {
+    color: red;
+  }
+}
+
+.icon-modify {
+  color: map-get(c.$colors, "gray");
+  &:hover {
+    color: rgb(163, 154, 154);
+  }
+}
+
+.icon-save {
+  color: map-get(c.$colors, "light");
+  &:hover {
+    color: rgb(32, 206, 32);
+  }
+}

@@ -12,42 +12,26 @@
     ></script>
   </head>
   <body>
-    <header>
-      <h1 class="title">Simple TODO list</h1>
+    <main class="wrap">
+      <header>
+        <h1 class="title title-small">Simple TODO list</h1>
 
-      <form class="task-form">
-        <input
-          class="task-form__input"
-          type="text"
-          class="list__container-input__task"
-          placeholder="¿Cuál será tu próxima tarea?"
-        />
-        <i class="fa-solid fa-square-check task-form__submit"></i>
-      </form>
-    </header>
-    <section class="task-list">
-      <div class="content">
-        <h2 class="task-list__title">Tasks</h2>
-        <!-- <div class="task-list__tasks">
-          <div class="task-list__container-input">
-            <input
-              class="task-list__input"
-              type="text"
-              value="My task"
-              readonly
-            />
-          </div>
-          <div class="task-list__actions">
-            <button class="task-list__btn-delete">
-              <i class="fa-solid fa-pencil icon-modify icon"></i>
-            </button>
-            <button class="task-list__btn-delete">
-              <i class="fa-solid fa-trash icon-delete icon"></i>
-            </button>
-          </div> -->
-        <!-- </div> -->
-      </div>
-    </section>
+        <form class="task-form">
+          <input
+            class="task-form__input"
+            type="text"
+            class="list__container-input__task"
+            placeholder="¿Cuál será tu próxima tarea?"
+          />
+          <i class="fa-solid fa-square-check task-form__submit"></i>
+        </form>
+      </header>
+      <section class="task-list">
+        <div class="content">
+          <h2 class="task-list__title">Tasks</h2>
+        </div>
+      </section>
+    </main>
     <script type="module" src="./js/scripts.js"></script>
   </body>
 </html>

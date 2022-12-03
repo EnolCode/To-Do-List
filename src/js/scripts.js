@@ -1,54 +1,63 @@
-// const button = document.querySelector(".list__container-input__button");
-// const task = document.querySelector(".list__container-input__task");
-// const list = document.querySelector(".list__container-tasks__list");
-// const divIcons = document.createElement("div");
-
-// button.addEventListener("click", (e) => {
-//   const buttonModify = `<i class="fa-solid fa-pencil icon-modify"></i>`;
-//   list.innerHTML += `<li class="task"><input class="input-main" value="${task.value}" readonly><div class="div-icons"> ${buttonModify} <i class="fa-solid fa-trash icon-delete"></i></div> </li>`;
-//   const btnDelete = document.querySelectorAll(".icon-delete");
-//   const btnModify = document.querySelectorAll(".icon-modify");
-//   task.value = "";
-
-//   btnDelete.forEach((el) =>
-//     el.addEventListener("click", (e) => {
-//       list.removeChild(e.path[2]);
-//     })
-//   );
-
-//   btnModify.forEach((el) =>
-//     el.addEventListener("click", (e) => {
-//       e.path[2].firstChild.removeAttribute("readonly");
-//       // e.path[3].removeChild(e);
-//       // e.target.innerHTML = " ";
-//       // divIcons.removeChild(btnModify);
-//       e.target.innerHTML = "JAJA";
-//       console.log(e.target.innerHTML);
-//     })
-//   );
-// });
-
 window.addEventListener("load", () => {
   const btnSubmit = document.querySelector(".task-form__submit");
   const input = document.querySelector(".task-form__input");
   const listContent = document.querySelector(".content");
 
+  function addClass(element, style) {
+    element.classList.add(style);
+  }
+
   btnSubmit.addEventListener("click", (e) => {
     const task = input.value;
     if (!task) {
       alert("Please fill out the task");
+      return;
     }
 
     const taskElement = document.createElement("div");
-    taskElement.classList.add("task-list__tasks");
+    addClass(taskElement, "task-list__tasks");
 
     const taskContentElement = document.createElement("div");
-    taskContentElement.classList.add("task-list__container-input");
-    taskContentElement.innerText = task;
+    addClass(taskContentElement, "task-list__container-input");
 
     taskElement.appendChild(taskContentElement);
+
     const taskInput = document.createElement("input");
-    taskInput.classList.add("task-list__input");
+    taskInput.type = "text";
+    taskInput.value = task;
+    addClass(taskInput, "task-list__input");
+    taskInput.setAttribute("readonly", "readonly");
+
+    taskContentElement.appendChild(taskInput);
+
+    const actionsTasksBtns = document.createElement("div");
+    addClass(actionsTasksBtns, "task-list__actions");
+
+    const taskBtnModify = document.createElement("button");
+    taskBtnModify.innerHTML = `<i class="fa-solid fa-pencil icon-modify icon"></i>`;
+
+    const taskBtnDelete = document.createElement("button");
+    taskBtnDelete.innerHTML = `<i class="fa-solid fa-trash icon-delete icon"></i>`;
+
+    actionsTasksBtns.appendChild(taskBtnModify);
+    actionsTasksBtns.appendChild(taskBtnDelete);
+
+    taskContentElement.appendChild(actionsTasksBtns);
     listContent.appendChild(taskElement);
+
+    input.value = "";
+
+    taskBtnModify.addEventListener("click", () => {
+      taskInput.hasAttribute("readonly")
+        ? ((taskBtnModify.innerHTML = `<i class="fa-solid fa-check icon icon-save"></i>`),
+          taskInput.removeAttribute("readonly"),
+          taskInput.focus())
+        : ((taskBtnModify.innerHTML = `<i class="fa-solid fa-pencil icon-modify icon"></i>`),
+          taskInput.setAttribute("readonly", "readonly"));
+    });
+
+    taskBtnDelete.addEventListener("click", () => {
+      listContent.removeChild(taskElement);
+    });
   });
 });

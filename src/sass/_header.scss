@@ -1,10 +1,9 @@
 @use "./colors" as c;
+@use "./mixins" as m;
 
 header {
+  @include m.flex(flex, column, nowrap, space-evenly, "");
   height: 20em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 
   .title {
     background-color: map-get(c.$colors, "darkest");
@@ -12,12 +11,16 @@ header {
     letter-spacing: 1px;
     padding: 2em 3em;
     border-radius: 5px;
+
+    @include m.mv() {
+      text-align: center;
+      font-size: 1.35em;
+    }
   }
 
   .task-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include m.flex(flex, row, nowrap, space-between, "center");
+
     &__input {
       width: 80%;
       height: 90%;
@@ -27,6 +30,10 @@ header {
       border-radius: 5px;
       background-color: map-get(c.$colors, "darkest");
       color: #ffffff;
+
+      @include m.mv() {
+        font-size: 1em;
+      }
     }
     &__submit {
       font-size: 3em;
