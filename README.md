@@ -8,7 +8,8 @@ Creacción de una herramienta para organizar tus tareas pendientes, puedes modif
 ## Versión movil
 ![image](https://user-images.githubusercontent.com/116892825/205448620-35e0be9b-9cff-4175-a794-22c0478aa58a.png)
 
-### Usar el comando "npm install" para poder visualizar e interactuar con la herramienta de una forma optima.
+### Isntalación de proyecto 
+Usar el comando "npm install" para poder visualizar e interactuar con la herramienta de una forma optima.
 
 ### Herramientas utilizadas
 - HTML5 (Metodología BEM)
